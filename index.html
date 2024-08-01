@@ -18,9 +18,19 @@
             position: relative;
         }
 
-        #bg-video {
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
 
         #mute-unmute-btn {
@@ -34,6 +44,7 @@
             padding: 10px;
             cursor: pointer;
             outline: none;
+            z-index: 100;
         }
 
         #mute-icon {
@@ -53,6 +64,7 @@
             padding: 20px;
         }
     </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -68,7 +80,7 @@
         <a href="https://w7z8i4hvu05.typeform.com/to/kzO3vvkk" class="nav-btn mobile-only">Customize your trip</a>
 
         <div class="sm">
-            <p>Contact us</p>
+            <p>Contact uss</p>
             <a href="mailto:bookings@madeiraoutdoors.com" target="_blank"><i class="ri-mail-fill"></i></a>
             <a href="https://wa.me/351961176353?text=I'm%20interested%20in%20your%20services" target="_blank"><i class="ri-whatsapp-fill"></i></a>
             <a href="https://www.instagram.com/madeira.outdoors" target="_blank"><i class="ri-instagram-fill"></i></a>
@@ -77,30 +89,40 @@
     </div>
 
     <div class="bg">
-        <video id="bg-video" src="madeira-old.mp4" autoplay loop playsinline muted></video>
-        <button id="mute-unmute-btn">
+        <div class="video-wrapper">
+            <iframe id="bg-video" src="https://www.youtube.com/embed/etYrsmPm85U?autoplay=1&loop=1&playlist=etYrsmPm85U&controls=0&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <button id="mute-unmute-btn" class="mute-btn">
             <i id="mute-icon" class="ri-volume-mute-fill"></i>
         </button>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('bg-video');
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('bg-video', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
             const muteBtn = document.getElementById('mute-unmute-btn');
             const muteIcon = document.getElementById('mute-icon');
             
             muteBtn.addEventListener('click', function() {
-                if (video.muted) {
-                    video.muted = false;
+                if (player.isMuted()) {
+                    player.unMute();
                     muteIcon.classList.remove('ri-volume-mute-fill');
                     muteIcon.classList.add('ri-volume-up-fill');
                 } else {
-                    video.muted = true;
+                    player.mute();
                     muteIcon.classList.remove('ri-volume-up-fill');
                     muteIcon.classList.add('ri-volume-mute-fill');
                 }
             });
-        });
+        }
     </script>
 </body>
 </html>
