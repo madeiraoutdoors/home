@@ -3,29 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icon.png">
+    
     <meta name="description" content="Discover the unexplored beauty of Madeira with Madeira Outdoors. We offer customized tours, outdoor adventures, and unique experiences to explore the natural splendor of the island. Join us for an unforgettable adventure.">
+
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Madeira Outdoors</title>
-    <style>
-        .bg video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            transform: rotate(90deg); /* Adiciona rotação para exibir o vídeo na horizontal */
-        }
-        .mute-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -34,37 +21,24 @@
     </nav>
     
     <div class="container">
+
         <h1>Coming Soon</h1>
         <h3>Site nearly ready</h3>
         <div class="progress-bar"><span></span></div>
+
         <a href="https://w7z8i4hvu05.typeform.com/to/kzO3vvkk" class="nav-btn mobile-only">Customize your trip</a>
+
         <div class="sm">
-            <p>Contact uss</p>
+            <p>Contact us</p>
             <a href="mailto:bookings@madeiraoutdoors.com" target="_blank"><i class="ri-mail-fill"></i></a>
             <a href="https://wa.me/351961176353?text=I'm%20interested%20in%20your%20services" target="_blank"><i class="ri-whatsapp-fill"></i></a>
             <a href="https://www.instagram.com/madeira.outdoors" target="_blank"><i class="ri-instagram-fill"></i></a>
             <a href="https://www.youtube.com/@madeira_outdoors" target="_blank"><i class="ri-youtube-fill"></i></a>
         </div>
     </div>
-    <div class="bg">
-        <video id="bg-video" src="madeira.mp4" autoplay loop playsinline></video>
-        <i id="mute-btn" class="ri-volume-mute-fill mute-btn"></i>
-    </div>
-    <script>
-        const video = document.getElementById('bg-video');
-        const muteBtn = document.getElementById('mute-btn');
 
-        muteBtn.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                muteBtn.classList.remove('ri-volume-mute-fill');
-                muteBtn.classList.add('ri-volume-up-fill');
-            } else {
-                video.muted = true;
-                muteBtn.classList.remove('ri-volume-up-fill');
-                muteBtn.classList.add('ri-volume-mute-fill');
-            }
-        });
-    </script>
+    <div class="bg">
+        <video src="madeira-old.mp4" muted autoplay loop playsinline></video>
+    </div>
 </body>
 </html>
