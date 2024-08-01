@@ -21,6 +21,7 @@
     </nav>
     
     <div class="container">
+
         <h1>Coming Soon</h1>
         <h3>Site nearly ready</h3>
         <div class="progress-bar"><span></span></div>
@@ -37,30 +38,7 @@
     </div>
 
     <div class="bg">
-        <video id="bg-video" src="madeira-old.mp4" autoplay loop playsinline muted></video>
-        <button id="mute-unmute-btn" class="mute-btn">
-            <i id="mute-icon" class="ri-volume-mute-fill"></i>
-        </button>
+        <video src="madeira-old.mp4" muted autoplay loop playsinline></video>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('bg-video');
-            const muteBtn = document.getElementById('mute-unmute-btn');
-            const muteIcon = document.getElementById('mute-icon');
-            
-            muteBtn.addEventListener('click', function() {
-                if (video.muted) {
-                    video.muted = false;
-                    muteIcon.classList.remove('ri-volume-mute-fill');
-                    muteIcon.classList.add('ri-volume-up-fill');
-                } else {
-                    video.muted = true;
-                    muteIcon.classList.remove('ri-volume-up-fill');
-                    muteIcon.classList.add('ri-volume-mute-fill');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
